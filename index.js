@@ -1,23 +1,16 @@
-/*const pgp = require('pg-promise')()
-      http = require('http');*/
+const pgp = require('pg-promise')()
+      http = require('http');
 
 
-/*const db = pgp(process.env.ELEPHANT_SQL);
+const db = pgp(process.env.ELEPHANT_SQL);
 const port = process.env.PORT || 5000;
 
 http.createServer((req,res) => {
     
     db.one('select now() as theTimne').then((row) => {
-       // res.end(row);
-       res.end('wat');
+        res.end(row);
     }).catch((error) => {
-        //res.end(error);
-        res.end('wat2');
+        res.end(error);
     });
 
-}).listen(port);*/
-
-const http = require('http');
-
-const port = process.env.PORT || 5000;
-http.createServer((req,res) => {res.end('hello');}).listen(port);
+}).listen(port);
