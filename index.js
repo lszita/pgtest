@@ -10,7 +10,7 @@ http.createServer((req,res) => {
     db.one('select now() as theTimne').then((row) => {
         res.end(row);
     }).catch((error) => {
-        res.end(error);
+        res.end(JSON.stringify(error));
     });
 
 }).listen(port);
