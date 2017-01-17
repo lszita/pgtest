@@ -1,5 +1,5 @@
-const pgp = require('pg-promise')()
-      http = require('http');
+/*const pgp = require('pg-promise')()
+      http = require('http');*/
 
 
 /*const db = pgp(process.env.ELEPHANT_SQL);
@@ -17,5 +17,7 @@ http.createServer((req,res) => {
 
 }).listen(port);*/
 
+const http = require('http');
+
 const port = process.env.PORT || 5000;
-http.createServer((req,res) => {}).listen(port);
+http.createServer((req,res) => {res.end('hello');}).listen(port);
