@@ -8,9 +8,11 @@ const port = process.env.PORT || 5000;
 http.createServer((req,res) => {
     
     db.one('select now() as theTimne').then((row) => {
-        res.end(row);
+       // res.end(row);
+       res.end('wat');
     }).catch((error) => {
-        res.end(error);
+        //res.end(error);
+        res.end('wat2');
     });
 
 }).listen(port);
