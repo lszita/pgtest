@@ -1,11 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var glob = require('../glob');
+const db = require('../db');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(glob.foo);
-  res.render('index', { title: 'Express' });
+  db.connection.one('select now() as theTimne').then((row) => {
+    res.render('index', { title: 'Express', message :  JSON.stringify(row) });
+  }).catch((error) => {
+    res.render('index', { title: 'Express', message :  JSON.stringify(error) });
+  });
 });
 
 module.exports = router;
